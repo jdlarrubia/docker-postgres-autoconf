@@ -24,9 +24,9 @@ RUN apk add --no-cache -t .build \
         linux-headers \
         py3-pip \
         python3-dev \
-    && pip3 install --no-cache-dir \
-        netifaces \
-    && apk del .build
+        && pip3 install --no-cache-dir \
+        netifaces --break-system-packages \
+        && apk del .build
 COPY autoconf-entrypoint /
 
 # Metadata
